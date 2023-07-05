@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public class TestForm {
+import javax.swing.*;
+import java.awt.*;
+
+public class TestForm {
+
 }
