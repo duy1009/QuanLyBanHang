@@ -1,15 +1,18 @@
 package controller;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import view.Utils;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Goods {
-    private List<Item> items;
+//    private List<Item> items;
     Connection conn;
 
     public Goods(Connection conn){
@@ -53,9 +56,46 @@ public class Goods {
         // update information and date
         // update on database
     }
-    public boolean addItem(Item item){
-        // kiểm tra tồn tại
+    public boolean addItem(
+            String name,
+            String describe,
+            long price,
+            int quantity_in_stock,
+            int quantity_sold,
+            String date_of_manufacture,
+            String expiration_date,
+            BufferedImage image
+    ){
+
+        try {
+            String img = Utils.toByteArray(image, "png");
+            Statement statement = conn.createStatement();
+            statement.executeUpdate("INSERT INTO `sanpham`(`ten`, `mota`, `soluongtrongkho`, `soluongdaban`, `gia`, `nsx`, `hsd`, `ngaytao`, `anh`) VALUES ('" +
+                    name +
+                    "','" +
+                    describe +
+                    "'," +
+                    quantity_in_stock +
+                    "," +
+                    quantity_sold +
+                    "," +
+                    price +
+                    ",'" +
+                    date_of_manufacture +
+                    "','" +
+                    expiration_date +
+                    "','" +
+                    date_of_manufacture +
+                    "','" +
+                    img +
+                    "')");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         // Cập nhật lên database
+
         return true;
     }
     public boolean deleteItem(String msp){

@@ -18,7 +18,7 @@ public class SalesmanGUI {
     private JTextField textField1;
     private JButton tìmKiếmButton;
     private JSpinner spinner1;
-    private JButton thêmSảnPhẩmButton;
+    private JButton insertB;
     private JButton chỉnhSửaButton;
     private JButton xemChiTiếtButton;
     private JTable table1;
@@ -55,11 +55,20 @@ public class SalesmanGUI {
     private JLabel s8;
     private JLabel l8;
     private JLabel nameL;
+    private JPanel pa1;
+    private JPanel pa2;
+    private JPanel pa3;
+    private JPanel pa4;
+    private JPanel pa5;
+    private JPanel pa6;
+    private JPanel pa7;
+    private JPanel pa8;
     Salesman salesman;
     private JLabel[] goodsNames;
     private JLabel[] goodsPrices;
     private JLabel[] goodsSolds;
     private JButton[] goodsButtons;
+    private JPanel[] goodsPanels;
     private Goods goods;
     Connection conn;
     public SalesmanGUI(Salesman salesman, Connection conn){
@@ -85,12 +94,20 @@ public class SalesmanGUI {
                 jFrame.setVisible(false);
             }
         });
+        insertB.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                InsertItemGUI insertItemGUI = new InsertItemGUI(conn);
+            }
+        });
     }
     private void initGoodsI4(){
         goodsButtons = new JButton[]{b1, b2, b3, b4, b5, b6, b7, b8};
         goodsNames = new JLabel[]{l1, l2, l3, l4, l5, l6, l7, l8};
         goodsPrices = new JLabel[]{p1, p2, p3, p4, p5, p6, p7, p8};
         goodsSolds = new JLabel[]{s1, s2, s3, s4, s5, s6, s7, s8};
+        goodsPanels = new JPanel[]{pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8};
     }
     private void updateGoods(List<Item> items){
         int cnt = 0;

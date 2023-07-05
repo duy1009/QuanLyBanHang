@@ -194,7 +194,7 @@
                         </constraints>
                         <properties/>
                       </component>
-                      <component id="d5caf" class="javax.swing.JButton" binding="thêmSảnPhẩmButton" default-binding="true">
+                      <component id="d5caf" class="javax.swing.JButton" binding="insertB">
                         <constraints>
                           <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
@@ -212,7 +212,7 @@
                     </properties>
                     <border type="none"/>
                     <children>
-                      <grid id="64380" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                      <grid id="64380" binding="pa4" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                         <margin top="0" left="0" bottom="0" right="0"/>
                         <constraints>
                           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -242,13 +242,13 @@
                               <component id="a331" class="javax.swing.JLabel" binding="p4">
                                 <constraints border-constraint="West"/>
                                 <properties>
-                                  <text value="100000000đ"/>
+                                  <text value=""/>
                                 </properties>
                               </component>
                               <component id="c65e6" class="javax.swing.JLabel" binding="s4">
                                 <constraints border-constraint="East"/>
                                 <properties>
-                                  <text value="Đã bán 42k"/>
+                                  <text value=""/>
                                 </properties>
                               </component>
                             </children>
@@ -268,7 +268,7 @@
                                   <font style="1"/>
                                   <foreground color="-16777216"/>
                                   <horizontalAlignment value="0"/>
-                                  <text value="Sản phẩm 1"/>
+                                  <text value=""/>
                                 </properties>
                               </component>
                             </children>
@@ -285,7 +285,7 @@
                         </properties>
                         <border type="none"/>
                         <children>
-                          <grid id="ebef8" default-binding="true" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="ebef8" binding="pa1" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -315,13 +315,13 @@
                                   <component id="710bf" class="javax.swing.JLabel" binding="p1">
                                     <constraints border-constraint="West"/>
                                     <properties>
-                                      <text value="100000000đ"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                   <component id="253f3" class="javax.swing.JLabel" binding="s1">
                                     <constraints border-constraint="East"/>
                                     <properties>
-                                      <text value="Đã bán 42k"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>
@@ -341,7 +341,7 @@
                                       <font style="1"/>
                                       <foreground color="-16777216"/>
                                       <horizontalAlignment value="0"/>
-                                      <text value="Sản phẩm 1"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>
@@ -356,7 +356,7 @@
                                 </properties>
                                 <border type="none"/>
                                 <children>
-                                  <grid id="ccb59" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                  <grid id="ccb59" binding="pa5" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                                     <margin top="0" left="0" bottom="0" right="0"/>
                                     <constraints>
                                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -386,13 +386,13 @@
                                           <component id="2e4c5" class="javax.swing.JLabel" binding="p5">
                                             <constraints border-constraint="West"/>
                                             <properties>
-                                              <text value="100000000đ"/>
+                                              <text value=""/>
                                             </properties>
                                           </component>
                                           <component id="8d078" class="javax.swing.JLabel" binding="s5">
                                             <constraints border-constraint="East"/>
                                             <properties>
-                                              <text value="Đã bán 42k"/>
+                                              <text value=""/>
                                             </properties>
                                           </component>
                                         </children>
@@ -412,7 +412,7 @@
                                               <font style="1"/>
                                               <foreground color="-16777216"/>
                                               <horizontalAlignment value="0"/>
-                                              <text value="Sản phẩm 1"/>
+                                              <text value=""/>
                                             </properties>
                                           </component>
                                         </children>
@@ -435,7 +435,7 @@
                         </properties>
                         <border type="none"/>
                         <children>
-                          <grid id="e32f4" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="e32f4" binding="pa2" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -465,13 +465,13 @@
                                   <component id="29269" class="javax.swing.JLabel" binding="p2">
                                     <constraints border-constraint="West"/>
                                     <properties>
-                                      <text value="100000000đ"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                   <component id="ee179" class="javax.swing.JLabel" binding="s2">
                                     <constraints border-constraint="East"/>
                                     <properties>
-                                      <text value="Đã bán 42k"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>
@@ -491,7 +491,7 @@
                                       <font style="1"/>
                                       <foreground color="-16777216"/>
                                       <horizontalAlignment value="0"/>
-                                      <text value="Sản phẩm 1"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>
@@ -508,7 +508,7 @@
                             </properties>
                             <border type="none"/>
                             <children>
-                              <grid id="2a2a2" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                              <grid id="2a2a2" binding="pa6" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                                 <margin top="0" left="0" bottom="0" right="0"/>
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -538,13 +538,13 @@
                                       <component id="ecb9e" class="javax.swing.JLabel" binding="p6">
                                         <constraints border-constraint="West"/>
                                         <properties>
-                                          <text value="100000000đ"/>
+                                          <text value=""/>
                                         </properties>
                                       </component>
                                       <component id="8b34d" class="javax.swing.JLabel" binding="s6">
                                         <constraints border-constraint="East"/>
                                         <properties>
-                                          <text value="Đã bán 42k"/>
+                                          <text value=""/>
                                         </properties>
                                       </component>
                                     </children>
@@ -564,7 +564,7 @@
                                           <font style="1"/>
                                           <foreground color="-16777216"/>
                                           <horizontalAlignment value="0"/>
-                                          <text value="Sản phẩm 1"/>
+                                          <text value=""/>
                                         </properties>
                                       </component>
                                     </children>
@@ -585,7 +585,7 @@
                         </properties>
                         <border type="none"/>
                         <children>
-                          <grid id="83565" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="83565" binding="pa3" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -615,13 +615,13 @@
                                   <component id="17f0" class="javax.swing.JLabel" binding="p3">
                                     <constraints border-constraint="West"/>
                                     <properties>
-                                      <text value="100000000đ"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                   <component id="e9e55" class="javax.swing.JLabel" binding="s3">
                                     <constraints border-constraint="East"/>
                                     <properties>
-                                      <text value="Đã bán 42k"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>
@@ -641,7 +641,7 @@
                                       <font style="1"/>
                                       <foreground color="-16777216"/>
                                       <horizontalAlignment value="0"/>
-                                      <text value="Sản phẩm 1"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>
@@ -658,7 +658,7 @@
                             </properties>
                             <border type="none"/>
                             <children>
-                              <grid id="6183a" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                              <grid id="6183a" binding="pa7" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                                 <margin top="0" left="0" bottom="0" right="0"/>
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -688,13 +688,13 @@
                                       <component id="bc195" class="javax.swing.JLabel" binding="p7">
                                         <constraints border-constraint="West"/>
                                         <properties>
-                                          <text value="100000000đ"/>
+                                          <text value=""/>
                                         </properties>
                                       </component>
                                       <component id="d0cf4" class="javax.swing.JLabel" binding="s7">
                                         <constraints border-constraint="East"/>
                                         <properties>
-                                          <text value="Đã bán 42k"/>
+                                          <text value=""/>
                                         </properties>
                                       </component>
                                     </children>
@@ -714,7 +714,7 @@
                                           <font style="1"/>
                                           <foreground color="-16777216"/>
                                           <horizontalAlignment value="0"/>
-                                          <text value="Sản phẩm 1"/>
+                                          <text value=""/>
                                         </properties>
                                       </component>
                                     </children>
@@ -735,7 +735,7 @@
                         </properties>
                         <border type="none"/>
                         <children>
-                          <grid id="bd638" default-binding="true" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="bd638" binding="pa8" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -765,13 +765,13 @@
                                   <component id="a28c5" class="javax.swing.JLabel" binding="p8">
                                     <constraints border-constraint="West"/>
                                     <properties>
-                                      <text value="100000000đ"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                   <component id="dd1c8" class="javax.swing.JLabel" binding="s8">
                                     <constraints border-constraint="East"/>
                                     <properties>
-                                      <text value="Đã bán 42k"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>
@@ -791,7 +791,7 @@
                                       <font style="1"/>
                                       <foreground color="-16777216"/>
                                       <horizontalAlignment value="0"/>
-                                      <text value="Sản phẩm 1"/>
+                                      <text value=""/>
                                     </properties>
                                   </component>
                                 </children>

@@ -44,7 +44,7 @@ public class RegisterGUI {
                 // Check cú pháp
                 // Check mật khẩu
 
-                String ns = ns3.getSelectedItem() +"-"+ ns2.getSelectedItem() +"-"+ ns1.getSelectedItem();
+                String ns = getDate(ns1, ns2, ns3);
                 if (!Register.register(
                         textField3.getText(),
                         comboBox1.getSelectedIndex(),
@@ -58,6 +58,9 @@ public class RegisterGUI {
                 }
             }
         });
+    }
+    private String getDate(JComboBox day, JComboBox month, JComboBox year){
+        return year.getSelectedItem() +"-"+ month.getSelectedItem() +"-"+ day.getSelectedItem();
     }
 
 }

@@ -67,6 +67,4 @@ public class Customer {
         return state;
     }
 
-
-
 }
