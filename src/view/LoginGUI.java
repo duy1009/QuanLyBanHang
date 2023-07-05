@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static controller.Login.loginCustomer;
 
 public class LoginGUI {
     private JPanel panel1;
@@ -21,6 +20,7 @@ public class LoginGUI {
     private JTextField textField4;
     private JPasswordField passwordField1;
     private JComboBox comboBox1;
+    private JLabel loginstate;
     Connection conn;
 
     public LoginGUI(Connection conn){
@@ -42,30 +42,28 @@ public class LoginGUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-
+                Login login = new Login(conn);
                 if (comboBox1.getSelectedIndex() == 0){
-                    Customer cus = Login.loginCustomer(textField4.getText(), new String(passwordField1.getPassword()));
+                    Customer cus = login.loginCustomer(textField4.getText(), new String(passwordField1.getPassword()));
                     if (cus.loginState()){
-                        CustomerGUI customerGUI = new CustomerGUI(cus);
+                        CustomerGUI customerGUI = new CustomerGUI(cus, conn);
                         jFrame.setVisible(false);
                     }
-
-
+                    else {
+                        loginstate.setText("Đăng nhập thất bại");
+                    }
                 }
                 else if (comboBox1.getSelectedIndex() == 1){
-                    Salesman sal = Login.loginSalesman(textField4.getText(), new String(passwordField1.getPassword()));
+                    Salesman sal = login.loginSalesman(textField4.getText(), new String(passwordField1.getPassword()));
                     if (sal.loginState()){
-                        SalesmanGUI salesmanGUI = new SalesmanGUI(sal);
+                        SalesmanGUI salesmanGUI = new SalesmanGUI(sal, conn);
                         jFrame.setVisible(false);
                     }
+                    else {
+                        loginstate.setText("Đăng nhập thất bại");
+                    }
                 }
-//                Statement stmt= null;
-//                try {
-//                    stmt = conn.createStatement();
-//                    ResultSet rs = stmt.executeQuery("SELECT * FROM nhanvien");
-//                } catch (SQLException ex) {
-//                    throw new RuntimeException(ex);
-//                }
+
 
             }
         });

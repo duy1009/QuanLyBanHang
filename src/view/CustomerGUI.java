@@ -1,13 +1,19 @@
 package view;
 
 import controller.Customer;
+import controller.Goods;
+import controller.Item;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.util.List;
 
 public class CustomerGUI {
     private JPanel panel1;
-    private JButton đăngXuấtButton;
+    private JButton logoutButton;
     private JSpinner spinner1;
     private JTabbedPane tabbedPane1;
     private JTextField textField1;
@@ -43,20 +49,79 @@ public class CustomerGUI {
     private JLabel s6;
     private JLabel s7;
     private JLabel s8;
+    private JButton b1;
+    private JButton b2;
+    private JButton b3;
+    private JButton b4;
+    private JButton b5;
+    private JButton b6;
+    private JButton b7;
+    private JButton b8;
 
+    private JLabel[] goodsNames;
+    private JLabel[] goodsPrices;
+    private JLabel[] goodsSolds;
+    private JButton[] goodsButtons;
     private Customer customer;
+    Connection conn;
+    private int page = 0;
+    private Goods goods;
 
-    public CustomerGUI(Customer customer) {
+    public CustomerGUI(Customer customer, Connection conn) {
         this.customer = customer;
-        JFrame jFrame = new JFrame("app");
+        this.conn = conn;
+
+        goods = new Goods(conn);
+        JFrame jFrame = new JFrame("App");
+        initGoodsI4();
+        setI4();
+
+        List<Item> itemShow = goods.searchName("");
+        updateGoods(itemShow);
+
         jFrame.setContentPane(this.panel1);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);
 
         createOrderTable();
+        logoutButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                LoginGUI loginGUI = new LoginGUI(conn);
+                jFrame.setVisible(false);
+            }
+        });
     }
+    private void initGoodsI4(){
+        goodsButtons = new JButton[]{b1, b2, b3, b4, b5, b6, b7, b8};
+        goodsNames = new JLabel[]{l1, l2, l3, l4, l5, l6, l7, l8};
+        goodsPrices = new JLabel[]{p1, p2, p3, p4, p5, p6, p7, p8};
+        goodsSolds = new JLabel[]{s1, s2, s3, s4, s5, s6, s7, s8};
+    }
+    private void updateGoods(List<Item> items){
+        int cnt = 0;
+        for (Item item:items){
+            if (cnt >=8){
+                break;
+            }
+            goodsNames[cnt].setText(item.getName());
+            goodsPrices[cnt].setText(Long.toString(item.getPrice()) + "đ");
+            if (item.getQuantity_sold() > 1000){
+                int i = item.getQuantity_sold() / 1000;
+                goodsSolds[cnt].setText("Đã bán: "+Integer.toString(i) +"k");
+            }else{
+                goodsSolds[cnt].setText("Đã bán: "+Integer.toString(item.getQuantity_sold()));
+            }
 
+            cnt++;
+        }
+
+    }
+    private void setI4(){
+        nameL.setText(customer.getName());
+    }
     private void createOrderTable(){
         Object[][] data = {
                 {"a", 1, 2, 3},

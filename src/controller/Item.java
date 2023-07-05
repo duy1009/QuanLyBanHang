@@ -14,7 +14,16 @@ public class Item {
     private Date posting_date;
 
     public Item (){}
-    public Item(String id, String name, String describe, long price, int quantity_in_stock, int quantity_sold, Date date_of_manufacture, Date expiration_date) {
+    public Item(String id,
+                String name,
+                String describe,
+                long price,
+                int quantity_in_stock,
+                int quantity_sold,
+                Date date_of_manufacture,
+                Date expiration_date,
+                Date posting_date) {
+        this.id = id;
         this.name = name;
         this.describe = describe;
         this.price = price;
@@ -22,6 +31,7 @@ public class Item {
         this.quantity_sold = quantity_sold;
         this.date_of_manufacture = date_of_manufacture;
         this.expiration_date = expiration_date;
+        this.posting_date = posting_date;
     }
 
     public String getName() {
