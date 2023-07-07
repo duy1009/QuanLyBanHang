@@ -26,7 +26,7 @@
               <background color="-918017"/>
               <font name="Calibri Light" size="28" style="1"/>
               <foreground color="-16777216"/>
-              <text value="Chi tiết đặt hàng   "/>
+              <text value="Chi tiết mặt hàng   "/>
             </properties>
           </component>
           <component id="ae483" class="javax.swing.JLabel">
@@ -119,7 +119,9 @@
           </component>
           <component id="507c5" class="javax.swing.JLabel" binding="name">
             <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <maximum-size width="300" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <foreground color="-16777216"/>
@@ -128,7 +130,9 @@
           </component>
           <component id="94718" class="javax.swing.JLabel" binding="stock">
             <constraints>
-              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <maximum-size width="300" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <foreground color="-16777216"/>
@@ -137,7 +141,9 @@
           </component>
           <component id="d3f1a" class="javax.swing.JLabel" binding="sold">
             <constraints>
-              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <maximum-size width="300" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <foreground color="-16777216"/>
@@ -146,7 +152,9 @@
           </component>
           <component id="83f41" class="javax.swing.JLabel" binding="price">
             <constraints>
-              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <maximum-size width="300" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <foreground color="-16777216"/>
@@ -155,7 +163,9 @@
           </component>
           <component id="41a0" class="javax.swing.JLabel" binding="nsx">
             <constraints>
-              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <maximum-size width="300" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <foreground color="-16777216"/>
@@ -164,7 +174,9 @@
           </component>
           <component id="3ec16" class="javax.swing.JLabel" binding="hsd">
             <constraints>
-              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <maximum-size width="300" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <foreground color="-16777216"/>
@@ -182,18 +194,6 @@
               <foreground color="-16777216"/>
               <icon value="Res/test.png"/>
               <text value=""/>
-            </properties>
-          </component>
-          <component id="49fbb" class="javax.swing.JLabel" binding="de">
-            <constraints>
-              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="80"/>
-                <maximum-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <foreground color="-16777216"/>
-              <text value="Label"/>
             </properties>
           </component>
           <vspacer id="5972c">
@@ -235,6 +235,18 @@
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
+          <component id="49fbb" class="javax.swing.JLabel" binding="de">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="80"/>
+                <maximum-size width="300" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <foreground color="-16777216"/>
+              <text value="Label"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>

@@ -16,7 +16,7 @@ import java.util.List;
 public class SalesmanGUI {
     private JPanel panel1;
     private JButton logoutButton;
-    private JButton cậpNhậtButton;
+    private JButton reloadButton;
     private JTabbedPane tabbedPane1;
     private JTextField searchT;
     private JButton SearchButton;
@@ -106,6 +106,7 @@ public class SalesmanGUI {
         updateOrderTable();
 
 
+
     }
     private void initGoodsI4(){
         goodsButtons = new JButton[]{b1, b2, b3, b4, b5, b6, b7, b8};
@@ -147,6 +148,17 @@ public class SalesmanGUI {
 //                System.out.println(orderList.get(orderTable.getSelectedRow()).getId());
             }
         });
+        reloadButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                reload();
+            }
+        });
+    }
+    private void reload(){
+        updateOrderTable();
+        updateGoods(goods.searchName(""));
     }
     private void updateGoods(List<Item> items){
         resetGoods();

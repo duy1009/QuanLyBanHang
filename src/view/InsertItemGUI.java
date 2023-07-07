@@ -63,7 +63,7 @@ public class InsertItemGUI {
                 JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
                 jfc.setDialogTitle("Choose image");
                 jfc.setAcceptAllFileFilterUsed(false);
-                FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG and JPG images", "png", "jpeg");
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG and JPG images", "png", "jpg");
                 jfc.addChoosableFileFilter(filter);
                 int returnValue = jfc.showDialog(null, "Choose");
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
