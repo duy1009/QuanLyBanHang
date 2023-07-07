@@ -2,18 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8a9dd5-d447-4151-a03c-75418b5c9549" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/commons-codec-1.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/InsertItemGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/InsertItemGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/Orders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ItemDetailGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ItemDetailGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/OrderDetailGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/OrderDetailGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuanLyBanHang.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QuanLyBanHang.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Goods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/InsertItemGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/InsertItemGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/InsertItemGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/InsertItemGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RegisterGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RegisterGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/RegisterGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RegisterGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/SalesmanGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SalesmanGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/SalesmanGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SalesmanGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +55,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "282",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "215",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "227",
     "jdk.selected.JAVA_MODULE": "corretto-16",
     "last_opened_file_path": "D:/Java/QuanLyBanHang/lib/commons-codec-1.9.jar",
     "project.structure.last.edited": "Modules",
@@ -63,6 +72,8 @@
       <recent name="D:\Java\QuanLyBanHang\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\QuanLyBanHang\src\view" />
+      <recent name="D:\Java\QuanLyBanHang\src\view\salesmanGUI" />
       <recent name="D:\Java\QuanLyBanHang\src\Res" />
       <recent name="D:\Java\QuanLyBanHang\res" />
       <recent name="D:\Java\QuanLyBanHang\src" />

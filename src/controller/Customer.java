@@ -1,4 +1,11 @@
 package controller;
+import view.Utils;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 
 public class Customer {
@@ -62,6 +69,28 @@ public class Customer {
         this.phone = phone;
         this.account_creation_date = account_creation_date;
         this.state = state;
+    }
+    public static Customer getCustomerByUN(Connection conn, String uname){
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            System.out.println(uname);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `khachhang` WHERE tk_kh=\""+ uname +"\"");
+
+            if(rs.next()){
+                System.out.println(uname);
+                return new Customer(
+                                rs.getString("ten"),
+                                rs.getString("gioitinh"),
+                                rs.getDate("ns"),
+                                rs.getString("diachi"),
+                                rs.getString("sdt"),
+                                rs.getDate("ngaytaotk")
+                            );
+            }else return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     public boolean loginState(){
         return state;

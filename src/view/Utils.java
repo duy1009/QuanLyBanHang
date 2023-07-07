@@ -10,6 +10,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
 
 public final class Utils {
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
@@ -64,5 +66,37 @@ public final class Utils {
             }
         }
         return img;
+    }
+    public static String Blob2String(Blob blob){
+        byte[] bdata = new byte[0];
+        try {
+            bdata = blob.getBytes(1, (int) blob.length());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return new String(bdata);
+    }
+    public static void printImage(BufferedImage img){
+        for (int i=0;i<img.getHeight();i++){
+            for (int j=0; j<img.getWidth();j++){
+                System.out.print(img.getRGB(i, j));
+            }
+        }
+    }
+    public static String stateString(int state){
+        String s ="";
+        if (state == 0){
+            s = "Chưa đặt";
+        }
+        else if (state == 1){
+            s = "Đang chờ duyệt";
+        }
+        else if (state == 2){
+            s = "Đã hoàn thành";
+        }
+        else if (state == 3){
+            s = "Đơn bị hủy";
+        }
+        return s;
     }
 }

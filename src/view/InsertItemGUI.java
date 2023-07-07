@@ -2,6 +2,7 @@ package view;
 
 import controller.Goods;
 import controller.Item;
+import view.Utils;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -84,7 +85,6 @@ public class InsertItemGUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Goods goods = new Goods(conn);
-
                 if (goods.addItem(
                         textField1.getText(),
                         textArea1.getText(),
@@ -103,6 +103,7 @@ public class InsertItemGUI {
             }
         });
     }
+
     private String getDate(JComboBox day, JComboBox month, JComboBox year){
         return year.getSelectedItem() +"-"+ month.getSelectedItem() +"-"+ day.getSelectedItem();
     }

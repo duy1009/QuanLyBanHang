@@ -26,17 +26,23 @@ public class Goods {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `sanpham` WHERE ten LIKE \"%"+ name+ "%\"");
             while (rs.next()){
-                Item item = new Item(
-                        rs.getString("msp"),
-                        rs.getString("ten"),
-                        rs.getString("mota"),
-                        rs.getLong("gia"),
-                        rs.getInt("soluongtrongkho"),
-                        rs.getInt("soluongdaban"),
-                        rs.getDate("nsx"),
-                        rs.getDate("hsd"),
-                        rs.getDate("ngaytao")
-                );
+                Item item = null;
+                try {
+                    item = new Item(
+                            rs.getString("msp"),
+                            rs.getString("ten"),
+                            rs.getString("mota"),
+                            rs.getLong("gia"),
+                            rs.getInt("soluongtrongkho"),
+                            rs.getInt("soluongdaban"),
+                            rs.getDate("nsx"),
+                            rs.getDate("hsd"),
+                            rs.getDate("ngaytao"),
+                            Utils.toBufferedImage(Utils.Blob2String(rs.getBlob("anh")))
+                    );
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 items.add(item);
             }
         } catch (SQLException e) {
@@ -45,17 +51,40 @@ public class Goods {
 
         return items;
     }
+    public static Item getItemByID(Connection conn, int id){
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `sanpham` WHERE msp=\""+ id + "\"");
+            if(rs.next()){
+                try {
+                    return new Item(
+                            rs.getString("msp"),
+                            rs.getString("ten"),
+                            rs.getString("mota"),
+                            rs.getLong("gia"),
+                            rs.getInt("soluongtrongkho"),
+                            rs.getInt("soluongdaban"),
+                            rs.getDate("nsx"),
+                            rs.getDate("hsd"),
+                            rs.getDate("ngaytao"),
+                            Utils.toBufferedImage(Utils.Blob2String(rs.getBlob("anh")))
+                    );
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }else return null;
+        } catch (SQLException e) {
+        throw new RuntimeException(e);
+        }
+    }
+
 
     public List<Item> searchDate(Date datePos){
         List<Item> item = null;
         return item;
     }
 
-    public void updateItem(Item item){
-        // Search id
-        // update information and date
-        // update on database
-    }
     public boolean addItem(
             String name,
             String describe,

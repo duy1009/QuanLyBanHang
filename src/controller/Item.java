@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.image.BufferedImage;
 import java.util.Date;
 
 public class Item {
@@ -12,6 +13,7 @@ public class Item {
     private Date date_of_manufacture;
     private Date expiration_date;
     private Date posting_date;
+    private BufferedImage image;
 
     public Item (){}
     public Item(String id,
@@ -22,7 +24,8 @@ public class Item {
                 int quantity_sold,
                 Date date_of_manufacture,
                 Date expiration_date,
-                Date posting_date) {
+                Date posting_date,
+                BufferedImage image) {
         this.id = id;
         this.name = name;
         this.describe = describe;
@@ -32,6 +35,7 @@ public class Item {
         this.date_of_manufacture = date_of_manufacture;
         this.expiration_date = expiration_date;
         this.posting_date = posting_date;
+        this.image = image;
     }
 
     public String getName() {
@@ -69,4 +73,5 @@ public class Item {
     public String getId() {
         return id;
     }
+    public BufferedImage getImage(){return image;}
 }

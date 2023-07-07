@@ -21,6 +21,7 @@ public class RegisterGUI {
     private JPasswordField passwordField1;
     private JPasswordField passwordField2;
     private JComboBox ns1;
+    private JLabel state;
     Connection conn;
     public RegisterGUI(Connection conn){
         this.conn = conn;
@@ -43,9 +44,9 @@ public class RegisterGUI {
                 super.mouseClicked(e);
                 // Check cú pháp
                 // Check mật khẩu
-
+                Register register = new Register(conn);
                 String ns = getDate(ns1, ns2, ns3);
-                if (!Register.register(
+                if (!register.register(
                         textField3.getText(),
                         comboBox1.getSelectedIndex(),
                         textField1.getText(),
@@ -54,7 +55,9 @@ public class RegisterGUI {
                         textField4.getText(),
                         new String (passwordField1.getPassword())
                 )){
-                    // Thong bao nhap sai
+                    state.setText("Tài khoản đã tồn tại");
+                }else{
+                    state.setText("Đăng ký thành công");
                 }
             }
         });

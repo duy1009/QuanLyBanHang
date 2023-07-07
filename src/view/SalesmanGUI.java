@@ -1,12 +1,15 @@
 package view;
 
-import controller.Goods;
-import controller.Item;
-import controller.Salesman;
+import controller.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
 
@@ -15,13 +18,12 @@ public class SalesmanGUI {
     private JButton logoutButton;
     private JButton cậpNhậtButton;
     private JTabbedPane tabbedPane1;
-    private JTextField textField1;
-    private JButton tìmKiếmButton;
+    private JTextField searchT;
+    private JButton SearchButton;
     private JSpinner spinner1;
     private JButton insertB;
-    private JButton chỉnhSửaButton;
-    private JButton xemChiTiếtButton;
-    private JTable table1;
+    private JButton detailOrderB;
+    private JTable orderTable;
     private JButton b4;
     private JLabel p4;
     private JLabel s4;
@@ -63,6 +65,7 @@ public class SalesmanGUI {
     private JPanel pa6;
     private JPanel pa7;
     private JPanel pa8;
+    private JScrollPane taPanel;
     Salesman salesman;
     private JLabel[] goodsNames;
     private JLabel[] goodsPrices;
@@ -70,22 +73,48 @@ public class SalesmanGUI {
     private JButton[] goodsButtons;
     private JPanel[] goodsPanels;
     private Goods goods;
-    Connection conn;
+    private Orders orders;
+    private BufferedImage imgDefault;
+    private JFrame jFrame;
+    List<Order> orderList;
+
+    private Connection conn;
     public SalesmanGUI(Salesman salesman, Connection conn){
         this.salesman =salesman;
         this.conn = conn;
         goods = new Goods(conn);
+        orders = new Orders(conn);
+        try {
+            imgDefault = ImageIO.read(new File("src/Res/test.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        imgDefault = Utils.resize(imgDefault, 150, 150);
 
         initGoodsI4();
         setI4();
         List<Item> itemShow = goods.searchName("");
         updateGoods(itemShow);
 
-        JFrame jFrame = new JFrame("App");
+        jFrame = new JFrame("App");
         jFrame.setContentPane(this.panel1);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);
+
+        initButton();
+        updateOrderTable();
+
+
+    }
+    private void initGoodsI4(){
+        goodsButtons = new JButton[]{b1, b2, b3, b4, b5, b6, b7, b8};
+        goodsNames = new JLabel[]{l1, l2, l3, l4, l5, l6, l7, l8};
+        goodsPrices = new JLabel[]{p1, p2, p3, p4, p5, p6, p7, p8};
+        goodsSolds = new JLabel[]{s1, s2, s3, s4, s5, s6, s7, s8};
+        goodsPanels = new JPanel[]{pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8};
+    }
+    private void initButton(){
         logoutButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -101,15 +130,26 @@ public class SalesmanGUI {
                 InsertItemGUI insertItemGUI = new InsertItemGUI(conn);
             }
         });
-    }
-    private void initGoodsI4(){
-        goodsButtons = new JButton[]{b1, b2, b3, b4, b5, b6, b7, b8};
-        goodsNames = new JLabel[]{l1, l2, l3, l4, l5, l6, l7, l8};
-        goodsPrices = new JLabel[]{p1, p2, p3, p4, p5, p6, p7, p8};
-        goodsSolds = new JLabel[]{s1, s2, s3, s4, s5, s6, s7, s8};
-        goodsPanels = new JPanel[]{pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8};
+        SearchButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                updateGoods(goods.searchName(searchT.getText()));
+            }
+        });
+        detailOrderB.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(orderTable.getSelectedRow()>=0) {
+                    OrderDetailGUI orderDetailGUI = new OrderDetailGUI(conn, orderList.get(orderTable.getSelectedRow()));
+                }
+//                System.out.println(orderList.get(orderTable.getSelectedRow()).getId());
+            }
+        });
     }
     private void updateGoods(List<Item> items){
+        resetGoods();
         int cnt = 0;
         for (Item item:items){
             if (cnt >=8){
@@ -124,11 +164,48 @@ public class SalesmanGUI {
                 goodsSolds[cnt].setText("Đã bán: "+Integer.toString(item.getQuantity_sold()));
             }
 
+            try {
+                BufferedImage img = item.getImage();
+                if (img != null) {
+
+                    goodsButtons[cnt].setIcon(new ImageIcon(img));
+                }
+            goodsButtons[cnt].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    ItemDetailGUI itemDetailGUI = new ItemDetailGUI(conn, item);
+                }
+            });
+            }finally {}
             cnt++;
         }
-
     }
-    private void setI4(){
-        nameL.setText(salesman.getName());
+    private void resetGoods(){
+        for (int i=0;i<8;i++){
+            goodsNames[i].setText("");
+            goodsPrices[i].setText("");
+            goodsSolds[i].setText("");
+            goodsButtons[i].setIcon( new ImageIcon(imgDefault));
+            if (goodsButtons[i].getMouseListeners().length >0){
+                goodsButtons[i].removeMouseListener(goodsButtons[i].getMouseListeners()[0]);
+            }
+        }
+    }
+    private void setI4(){nameL.setText(salesman.getName());
+    }
+    private void updateOrderTable(){
+        String[] labelT = new String[] {"Tên khách hàng", "Tổng tiền", "Ngày đặt", "Trạng thái"};
+        orderList = orders.searchName("");
+        Object[][] data = new Object[orderList.size()][labelT.length];
+        int cnt = 0;
+        for (Order j :orderList){
+            data[cnt][0] = j.getCustomer_username(); // Sửa thành tên khách hàng chứ k phải tên tk
+            data[cnt][1] = j.getTotalPrice();
+            data[cnt][2] = j.getOrderedTime();
+            data[cnt][3] = Utils.stateString(j.getState());
+            cnt++;
+        }
+        orderTable.setModel(new DefaultTableModel(data, labelT));
     }
 }
