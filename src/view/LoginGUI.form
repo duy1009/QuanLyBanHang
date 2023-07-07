@@ -93,7 +93,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="tbduy"/>
+              <text value="nntuan"/>
             </properties>
           </component>
           <component id="310b2" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
@@ -103,7 +103,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="duy1009"/>
+              <text value="12345"/>
             </properties>
           </component>
           <grid id="730f0" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

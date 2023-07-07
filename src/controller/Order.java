@@ -12,6 +12,7 @@ public class Order {
     private Date orderedTime;
     private int state;
 
+    public Order(){}
     public Order (String id,  String salesman_username, String customer_username, List<OrderDetail> orderDetails, Date orderedTime, int state){
         this.id = id;
         this.salesman_username = salesman_username;

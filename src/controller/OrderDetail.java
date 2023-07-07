@@ -23,7 +23,7 @@ public class OrderDetail {
     }
 
     private long price;
-    OrderDetail (int ID, int idItem, int quantity, long price){
+    public OrderDetail(int ID, int idItem, int quantity, long price){
         this.id = ID;
         this.idItem = idItem;
         this.quantity = quantity;

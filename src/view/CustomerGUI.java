@@ -1,14 +1,17 @@
 package view;
 
-import controller.Customer;
-import controller.Goods;
-import controller.Item;
+import controller.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerGUI {
@@ -19,8 +22,8 @@ public class CustomerGUI {
     private JTextField textField1;
     private JButton tìmKiếmButton;
     private JTable orderTable;
-    private JButton cậpNhậtButton;
-    private JTable table1;
+    private JButton reloadButton;
+    private JTable cardTable;
     private JButton xóaButton;
     private JButton đặtHàngButton;
     private JButton hủyButton;
@@ -57,6 +60,8 @@ public class CustomerGUI {
     private JButton b6;
     private JButton b7;
     private JButton b8;
+    private JButton detailOrderB;
+    private JLabel priceAll;
 
     private JLabel[] goodsNames;
     private JLabel[] goodsPrices;
@@ -65,14 +70,21 @@ public class CustomerGUI {
     private Customer customer;
     Connection conn;
     private int page = 0;
+    private BufferedImage imgDefault;
     private Goods goods;
+    private Order card;
+    List<Order> orderList;
+    private Orders orders;
+    private JFrame jFrame;
 
     public CustomerGUI(Customer customer, Connection conn) {
         this.customer = customer;
         this.conn = conn;
+        orders = new Orders(conn);
+        card = new Order("0", "", customer.getName(), new ArrayList<>(), null, 0);
 
         goods = new Goods(conn);
-        JFrame jFrame = new JFrame("App");
+        jFrame = new JFrame("App");
         initGoodsI4();
         setI4();
 
@@ -84,13 +96,36 @@ public class CustomerGUI {
         jFrame.pack();
         jFrame.setVisible(true);
 
-        createOrderTable();
+        updateOrderTable();
+        updateCardTable();
+        initButton();
+        reloadButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                updateOrderTable();
+                updateGoods(goods.searchName(""));
+                updateCardTable();
+            }
+        });
+    }
+    private void initButton(){
         logoutButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 LoginGUI loginGUI = new LoginGUI(conn);
                 jFrame.setVisible(false);
+            }
+        });
+        detailOrderB.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(orderTable.getSelectedRow()>=0) {
+                    OrderDetailGUI_2 orderDetailGUI_2 = new OrderDetailGUI_2(conn, orderList.get(orderTable.getSelectedRow()));
+                }
+//                System.out.println(orderList.get(orderTable.getSelectedRow()).getId());
             }
         });
     }
@@ -100,7 +135,9 @@ public class CustomerGUI {
         goodsPrices = new JLabel[]{p1, p2, p3, p4, p5, p6, p7, p8};
         goodsSolds = new JLabel[]{s1, s2, s3, s4, s5, s6, s7, s8};
     }
+
     private void updateGoods(List<Item> items){
+        resetGoods();
         int cnt = 0;
         for (Item item:items){
             if (cnt >=8){
@@ -115,25 +152,80 @@ public class CustomerGUI {
                 goodsSolds[cnt].setText("Đã bán: "+Integer.toString(item.getQuantity_sold()));
             }
 
+            try {
+                BufferedImage img = item.getImage();
+                if (img != null) {
+
+                    goodsButtons[cnt].setIcon(new ImageIcon(img));
+                }
+                goodsButtons[cnt].addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        super.mouseClicked(e);
+                        ItemDetailGUI_2 itemDetailGUI_2 = new ItemDetailGUI_2(conn, item, card);
+                    }
+                });
+            }finally {}
             cnt++;
         }
-
+    }
+    private void resetGoods(){
+        for (int i=0;i<8;i++){
+            goodsNames[i].setText("");
+            goodsPrices[i].setText("");
+            goodsSolds[i].setText("");
+            goodsButtons[i].setIcon( new ImageIcon(imgDefault));
+            if (goodsButtons[i].getMouseListeners().length >0){
+                goodsButtons[i].removeMouseListener(goodsButtons[i].getMouseListeners()[0]);
+            }
+        }
     }
     private void setI4(){
+        try {
+            imgDefault = ImageIO.read(new File("src/Res/test.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        imgDefault = Utils.resize(imgDefault, 150, 150);
+
         nameL.setText(customer.getName());
     }
-    private void createOrderTable(){
-        Object[][] data = {
-                {"a", 1, 2, 3},
-                {"adas", 2, 3 ,5},
-                {"df", 1, 2, 3},
-                {"rtasas", 2, 3 ,5}
-        };
-        orderTable.setModel(new DefaultTableModel(
-                data,
-                new String[] {"Name", "num1", "num2", "num3"}
-        ));
+    private void updateOrderTable(){
+        String[] labelT = new String[] {"Tên khách hàng", "Tổng tiền", "Ngày đặt", "Trạng thái"};
+        orderList = orders.searchName("");
+        Object[][] data = new Object[orderList.size()][labelT.length];
+        int cnt = 0;
+        for (Order j :orderList){
+            data[cnt][0] = j.getCustomer_username(); // Sửa thành tên khách hàng chứ k phải tên tk
+            data[cnt][1] = j.getTotalPrice();
+            data[cnt][2] = j.getOrderedTime();
+            data[cnt][3] = Utils.stateString(j.getState());
+            cnt++;
+        }
+        orderTable.setModel(new DefaultTableModel(data, labelT));
     }
+
+    private void updateCardTable(){
+        String[] labelT = new String[] {"Tên", "Số lượng", "Đơn giá (đồng)"};
+        Object[][] data;
+        if (card!=null && card.getOrderDetails() != null) {
+            List<OrderDetail> orderDetails = card.getOrderDetails();
+            data = new Object[orderDetails.size()][labelT.length];
+            int cnt = 0;
+            for (OrderDetail j : orderDetails) {
+                Item item = Goods.getItemByID(conn, j.getIdItem());
+                data[cnt][0] = item.getName();
+                data[cnt][1] = j.getQuantity();
+                data[cnt][2] = item.getPrice();
+                cnt++;
+            }
+            priceAll.setText("Tổng tiền: " + Long.toString(card.getTotalPrice()));
+        }else {
+            data = new Object[][]{{"", "", ""}};
+        }
+        cardTable.setModel(new DefaultTableModel(data, labelT));
+    }
+    public Order getCard(){return card;}
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
