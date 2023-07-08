@@ -18,8 +18,8 @@ public class Login {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `khachhang` WHERE tk_kh=\"" + userName +"\" AND mk=\"" + password +"\"");
             if (rs.next()){
-                System.out.println("da ton tai");
                 customer.setInformation(
+                        userName,
                         rs.getString("ten"),
                         rs.getString("gioitinh"),
                         rs.getDate("ns"),
@@ -28,7 +28,6 @@ public class Login {
                         rs.getDate("ngaytaotk"),
                         true
                         );
-                System.out.println(rs.getString("ten"));
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
@@ -44,8 +43,8 @@ public class Login {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `nhanvien` WHERE tk_nv=\"" + userName +"\" AND mk=\"" + password +"\"");
             if (rs.next()){
-                System.out.println("da ton tai");
                 salesman.setInformation(
+                        userName,
                         rs.getString("ten"),
                         rs.getString("gioitinh"),
                         rs.getDate("ns"),
@@ -54,7 +53,6 @@ public class Login {
                         rs.getDate("ngaytaotk"),
                         true
                 );
-                System.out.println(rs.getString("ten"));
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);

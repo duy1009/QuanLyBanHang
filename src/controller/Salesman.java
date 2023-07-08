@@ -3,15 +3,16 @@ package controller;
 import java.util.Date;
 
 public class Salesman {
-    private String id;
+    private String uname;
+
     private String name;
     private String sex;
     private Date date_of_birth;
     private String address;
     private String phone;
 
-    public String getId() {
-        return id;
+    public String getUname() {
+        return uname;
     }
 
     public String getName() {
@@ -63,7 +64,8 @@ public class Salesman {
         this.phone = phone;
         this.account_creation_date = account_creation_date;
     }
-    public void setInformation(String name, String sex, Date date_of_birth, String address, String phone, Date account_creation_date, boolean state) {
+    public void setInformation(String uname, String name, String sex, Date date_of_birth, String address, String phone, Date account_creation_date, boolean state) {
+        this.uname = uname;
         this.name = name;
         this.sex = sex;
         this.date_of_birth = date_of_birth;

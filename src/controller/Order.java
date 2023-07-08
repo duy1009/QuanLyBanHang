@@ -13,7 +13,12 @@ public class Order {
     private int state;
 
     public Order(){}
-    public Order (String id,  String salesman_username, String customer_username, List<OrderDetail> orderDetails, Date orderedTime, int state){
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Order (String id, String salesman_username, String customer_username, List<OrderDetail> orderDetails, Date orderedTime, int state){
         this.id = id;
         this.salesman_username = salesman_username;
         this.customer_username = customer_username;

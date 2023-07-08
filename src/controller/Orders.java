@@ -50,7 +50,6 @@ public class Orders {
                             );
                     orderDetails.add(temp);
                 }
-                System.out.println(rs.getString("tk_nv"));
                 Order order_t = new Order(
                         rs.getString("mdh"),
                         rs.getString("tk_nv"),
@@ -176,5 +175,37 @@ public class Orders {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean createOrder(Order order){
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(String.format("INSERT INTO `donhang`(`tk_nv`,`tk_kh`, `thoigian`, `trangthai`) " +
+                    "VALUE('%s', '%s', '%s', '%d')", "", order.getCustomer_username(), "2023-7-8", 1));
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `donhang` WHERE mdh=LAST_INSERT_ID()");
+            if(rs.next()){
+                order.setId(rs.getString("mdh"));
+            }else {
+                return false;
+            }
+            for (OrderDetail orderDetail: order.getOrderDetails()){
+
+                orderDetail.getId();
+                Statement stmt2 = conn.createStatement();
+                stmt2.executeUpdate(String.format("INSERT INTO `chitietsp`(`mdh`,`msp`, `soluong`, `gia`) " +
+                        "VALUE('%s', '%s', '%d', '%s')",
+                        order.getId(),
+                        orderDetail.getIdItem(),
+                        orderDetail.getQuantity(),
+                        Long.toString(orderDetail.getPrice())));
+            }
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
     }
 }

@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.Date;
 
 public class Customer {
+    private String uname;
     private String name;
     private String sex;
     private Date date_of_birth;
@@ -60,8 +61,12 @@ public class Customer {
     public boolean isState() {
         return state;
     }
+    public String getUname() {
+        return uname;
+    }
 
-    public void setInformation(String name, String sex, Date date_of_birth, String address, String phone, Date account_creation_date, boolean state) {
+    public void setInformation(String uname, String name, String sex, Date date_of_birth, String address, String phone, Date account_creation_date, boolean state) {
+        this.uname = uname;
         this.name = name;
         this.sex = sex;
         this.date_of_birth = date_of_birth;

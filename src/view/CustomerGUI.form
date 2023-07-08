@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.CustomerGUI">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="4" y="7" width="736" height="654"/>
+      <xy x="4" y="7" width="736" height="664"/>
     </constraints>
     <properties>
       <background color="-918017"/>
@@ -784,6 +784,13 @@
                       </grid>
                     </children>
                   </grid>
+                  <vspacer id="8ffe9">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <minimum-size width="-1" height="30"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
                 </children>
               </grid>
             </children>
@@ -845,9 +852,6 @@
             </properties>
             <border type="none"/>
             <children>
-              <hspacer id="70e8e">
-                <constraints border-constraint="Center"/>
-              </hspacer>
               <scrollpane id="21ef">
                 <constraints border-constraint="North"/>
                 <properties/>
@@ -861,7 +865,7 @@
                   </component>
                 </children>
               </scrollpane>
-              <grid id="e8c2d" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="e8c2d" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints border-constraint="South"/>
                 <properties/>
@@ -869,15 +873,15 @@
                 <children>
                   <component id="2fc0c" class="javax.swing.JButton" binding="xóaButton" default-binding="true">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="Xóa"/>
                     </properties>
                   </component>
-                  <component id="5438d" class="javax.swing.JButton" binding="đặtHàngButton" default-binding="true">
+                  <component id="5438d" class="javax.swing.JButton" binding="dhButton">
                     <constraints>
-                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="Đặt hàng"/>
@@ -885,7 +889,7 @@
                   </component>
                   <component id="bec45" class="javax.swing.JButton" binding="hủyButton" default-binding="true">
                     <constraints>
-                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="Hủy"/>
@@ -897,6 +901,17 @@
                     </constraints>
                     <properties>
                       <text value="Tổng tiền:"/>
+                    </properties>
+                  </component>
+                  <component id="2ae6f" class="javax.swing.JLabel" binding="stateOd">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                        <minimum-size width="-1" height="20"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <foreground color="-4521983"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>

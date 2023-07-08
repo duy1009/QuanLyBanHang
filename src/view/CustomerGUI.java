@@ -25,7 +25,7 @@ public class CustomerGUI {
     private JButton reloadButton;
     private JTable cardTable;
     private JButton xóaButton;
-    private JButton đặtHàngButton;
+    private JButton dhButton;
     private JButton hủyButton;
     private JLabel nameL;
     private JLabel l1;
@@ -62,6 +62,7 @@ public class CustomerGUI {
     private JButton b8;
     private JButton detailOrderB;
     private JLabel priceAll;
+    private JLabel stateOd;
 
     private JLabel[] goodsNames;
     private JLabel[] goodsPrices;
@@ -81,7 +82,7 @@ public class CustomerGUI {
         this.customer = customer;
         this.conn = conn;
         orders = new Orders(conn);
-        card = new Order("0", "", customer.getName(), new ArrayList<>(), null, 0);
+
 
         goods = new Goods(conn);
         jFrame = new JFrame("App");
@@ -108,6 +109,30 @@ public class CustomerGUI {
                 updateCardTable();
             }
         });
+        dhButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+//                System.out.println(card.getOrderDetails().size());
+                if (orders.createOrder(card)){
+                    stateOd.setText("Đặt hàng thành công!");
+                }
+                else {
+                    stateOd.setText("Thất bại");
+                }
+            }
+        });
+        hủyButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                resetCard();
+            }
+        });
+    }
+    private void resetCard(){
+        card = new Order("0", "", customer.getUname(), new ArrayList<>(), null, 0);
+        stateOd.setText("");
     }
     private void initButton(){
         logoutButton.addMouseListener(new MouseAdapter() {
@@ -181,6 +206,7 @@ public class CustomerGUI {
         }
     }
     private void setI4(){
+        resetCard();
         try {
             imgDefault = ImageIO.read(new File("src/Res/test.png"));
         } catch (IOException e) {

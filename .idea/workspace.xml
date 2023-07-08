@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8a9dd5-d447-4151-a03c-75418b5c9549" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/view/ItemDetailGUI_2.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ItemDetailGUI_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/OrderDetailGUI_2.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/OrderDetailGUI_2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Salesman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Salesman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/CustomerGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/CustomerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LoginGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginGUI.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,24 +37,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "282",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "241",
-    "jdk.selected.JAVA_MODULE": "corretto-16",
-    "last_opened_file_path": "D:/Java/QuanLyBanHang/lib/commons-codec-1.9.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;282&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;241&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-16&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/QuanLyBanHang/lib/commons-codec-1.9.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\QuanLyBanHang\lib" />
