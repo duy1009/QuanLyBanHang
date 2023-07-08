@@ -25,9 +25,11 @@ public class OrderDetailGUI {
     private JButton exit;
     private JLabel status;
     private JFrame jFrame;
-    public OrderDetailGUI(Connection conn, Order order){
+    private Salesman salesman;
+    public OrderDetailGUI(Connection conn, Order order, Salesman salesman){
         this.conn = conn;
         this.order = order;
+        this.salesman = salesman;
 
         jFrame = new JFrame("Order Detail");
         init();
@@ -55,7 +57,7 @@ public class OrderDetailGUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Orders orders = new Orders(conn);
-                if (orders.confOrder(order.getId())){
+                if (orders.confOrder(salesman.getUname(), order.getId())){
                     status.setText("Đã duyệt đơn!");
                 }else {
                     status.setText("Lỗi");
@@ -69,7 +71,7 @@ public class OrderDetailGUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Orders orders = new Orders(conn);
-                if (orders.rejectOrder(order.getId())){
+                if (orders.rejectOrder(salesman.getUname(), order.getId())){
                     status.setText("Đã hủy đơn!");
                 }else {
                     status.setText("Lỗi");

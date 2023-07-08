@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="45a14" binding="panel1" layout-manager="GridLayoutManager" row-count="13" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="45a14" binding="panel1" layout-manager="GridLayoutManager" row-count="14" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -20,7 +20,7 @@
         <children>
           <component id="cfb0f" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-918017"/>
@@ -185,7 +185,7 @@
           </component>
           <component id="86f0" class="javax.swing.JLabel" binding="image">
             <constraints>
-              <grid row="8" column="1" row-span="4" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+              <grid row="8" column="1" row-span="5" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="150" height="150"/>
                 <maximum-size width="150" height="150"/>
               </grid>
@@ -198,7 +198,7 @@
           </component>
           <vspacer id="1d8ab">
             <constraints>
-              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="30"/>
               </grid>
             </constraints>
@@ -229,7 +229,7 @@
           </component>
           <component id="18755" class="javax.swing.JButton" binding="addCard">
             <constraints>
-              <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <maximum-size width="150" height="-1"/>
               </grid>
             </constraints>
@@ -237,19 +237,20 @@
               <text value="Thêm vào giỏ hàng"/>
             </properties>
           </component>
-          <component id="86c6d" class="javax.swing.JLabel">
+          <component id="516ba" class="javax.swing.JLabel" binding="state">
             <constraints>
-              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="30"/>
+              </grid>
             </constraints>
             <properties>
-              <font name="Calibri" size="18" style="1"/>
-              <foreground color="-16777216"/>
-              <text value="Nhập số lượng"/>
+              <foreground color="-4521983"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="68487" class="javax.swing.JTextField" binding="quanlity">
             <constraints>
-              <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="100" height="-1"/>
                 <preferred-size width="100" height="-1"/>
                 <maximum-size width="100" height="-1"/>
@@ -257,15 +258,14 @@
             </constraints>
             <properties/>
           </component>
-          <component id="516ba" class="javax.swing.JLabel" binding="state">
+          <component id="86c6d" class="javax.swing.JLabel">
             <constraints>
-              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="30"/>
-              </grid>
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <foreground color="-4521983"/>
-              <text value=""/>
+              <font name="Calibri" size="18" style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Nhập số lượng"/>
             </properties>
           </component>
         </children>

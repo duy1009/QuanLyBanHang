@@ -154,7 +154,7 @@ public class SalesmanGUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(orderTable.getSelectedRow()>=0) {
-                    OrderDetailGUI orderDetailGUI = new OrderDetailGUI(conn, orderList.get(orderTable.getSelectedRow()));
+                    OrderDetailGUI orderDetailGUI = new OrderDetailGUI(conn, orderList.get(orderTable.getSelectedRow()), salesman);
                 }
 //                System.out.println(orderList.get(orderTable.getSelectedRow()).getId());
             }

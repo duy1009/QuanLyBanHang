@@ -53,7 +53,7 @@ public class OrderDetailGUI_2 {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Orders orders = new Orders(conn);
-                if (orders.rejectOrder(order.getId())){
+                if (orders.rejectOrder("",order.getId())){
                     status.setText("Đã hủy đơn!");
                 }else {
                     status.setText("Lỗi");

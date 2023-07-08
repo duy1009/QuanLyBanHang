@@ -170,22 +170,22 @@ public class Orders {
 
         return true;
     }
-    public boolean confOrder(String id){
+    public boolean confOrder(String uname_nv, String id){
         Statement statement = null;
         try {
             statement = conn.createStatement();
-            statement.executeUpdate(String.format("UPDATE `donhang` SET trangthai=2 WHERE mdh=(%s)", id) );
+            statement.executeUpdate(String.format("UPDATE `donhang` SET trangthai=2, tk_nv='%s' WHERE mdh=(%s)",uname_nv, id) );
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 //        return true;
     }
-    public boolean rejectOrder(String id){
+    public boolean rejectOrder(String uname_nv, String id){
         Statement statement = null;
         try {
             statement = conn.createStatement();
-            statement.executeUpdate(String.format("UPDATE `donhang` SET trangthai=3 WHERE mdh=(%s)", id) );
+            statement.executeUpdate(String.format("UPDATE `donhang` SET trangthai=3, tk_nv='%s' WHERE mdh=(%s)",uname_nv, id) );
             return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
