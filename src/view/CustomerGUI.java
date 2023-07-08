@@ -19,8 +19,8 @@ public class CustomerGUI {
     private JButton logoutButton;
     private JSpinner spinner1;
     private JTabbedPane tabbedPane1;
-    private JTextField textField1;
-    private JButton tìmKiếmButton;
+    private JTextField search;
+    private JButton searchB;
     private JTable orderTable;
     private JButton reloadButton;
     private JTable cardTable;
@@ -127,6 +127,14 @@ public class CustomerGUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 resetCard();
+            }
+        });
+        searchB.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                updateGoods(goods.searchName(search.getText()));
+
             }
         });
     }

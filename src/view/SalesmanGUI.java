@@ -66,6 +66,7 @@ public class SalesmanGUI {
     private JPanel pa7;
     private JPanel pa8;
     private JScrollPane taPanel;
+    private JLabel tb;
     Salesman salesman;
     private JLabel[] goodsNames;
     private JLabel[] goodsPrices;
@@ -84,17 +85,7 @@ public class SalesmanGUI {
         this.conn = conn;
         goods = new Goods(conn);
         orders = new Orders(conn);
-        try {
-            imgDefault = ImageIO.read(new File("src/Res/test.png"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        imgDefault = Utils.resize(imgDefault, 150, 150);
-
-        initGoodsI4();
-        setI4();
-        List<Item> itemShow = goods.searchName("");
-        updateGoods(itemShow);
+        init();
 
         jFrame = new JFrame("App");
         jFrame.setContentPane(this.panel1);
@@ -102,8 +93,7 @@ public class SalesmanGUI {
         jFrame.pack();
         jFrame.setVisible(true);
 
-        initButton();
-        updateOrderTable();
+
 
 
 
@@ -114,6 +104,27 @@ public class SalesmanGUI {
         goodsPrices = new JLabel[]{p1, p2, p3, p4, p5, p6, p7, p8};
         goodsSolds = new JLabel[]{s1, s2, s3, s4, s5, s6, s7, s8};
         goodsPanels = new JPanel[]{pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8};
+    }
+    private void init(){
+        try {
+            imgDefault = ImageIO.read(new File("src/Res/test.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        imgDefault = Utils.resize(imgDefault, 150, 150);
+        int num = orders.getNumNewOrders();
+        if (num <= 0) {
+            tb.setText("Không có đơn hàng mới.");
+        }else {
+            tb.setText(String.format("Có %d đơn hàng mới!", num));
+        }
+
+        initGoodsI4();
+        setI4();
+        List<Item> itemShow = goods.searchName("");
+        updateGoods(itemShow);
+        initButton();
+        updateOrderTable();
     }
     private void initButton(){
         logoutButton.addMouseListener(new MouseAdapter() {
@@ -217,7 +228,9 @@ public class SalesmanGUI {
             data[cnt][2] = j.getOrderedTime();
             data[cnt][3] = Utils.stateString(j.getState());
             cnt++;
+
         }
+
         orderTable.setModel(new DefaultTableModel(data, labelT));
     }
 }

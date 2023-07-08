@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2a8a9dd5-d447-4151-a03c-75418b5c9549" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Salesman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Salesman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/CustomerGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/CustomerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SalesmanGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SalesmanGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SalesmanGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SalesmanGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

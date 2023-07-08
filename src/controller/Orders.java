@@ -107,6 +107,21 @@ public class Orders {
 
     }
 
+    public int getNumNewOrders(){
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `donhang` WHERE trangthai=1");
+            int cnt = 0;
+            while (rs.next()){
+                cnt++;
+            }
+            return cnt;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
     public List<Item> searchDate(Date datePos){
         List<Item> item = null;
         return item;
